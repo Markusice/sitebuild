@@ -1,5 +1,5 @@
 import React from "react";
-import CardContainer from "./views/CardContainer";
+import CardContainer from "./components/CardContainer";
 
 const App = () => {
   return (

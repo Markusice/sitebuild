@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
+import CardContext from "../contexts/CardContext";
 
-const Modal = ({ isOpen, setOpen, cardContext }) => {
-  const { openedCard } = useContext(cardContext);
+const Modal = ({ isOpen, setOpen }) => {
+  const { openedCard } = useContext(CardContext);
 
   return (
     <>
-      {openedCard && isOpen ? (
+      {isOpen ? (
         <div
           id="modal"
           className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
@@ -31,7 +32,7 @@ const Modal = ({ isOpen, setOpen, cardContext }) => {
             <button
               id="closeModal"
               className="mt-4 bg-amber-700 text-white py-2 px-4 rounded hover:bg-amber-600"
-              onClick={setOpen}
+              onClick={() => setOpen(false)}
             >
               Bezárás
             </button>

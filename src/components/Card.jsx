@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import sorozatok from "../domain/sorozatok";
+import CardContext from "../contexts/CardContext";
 
 const getCardData = (title) => {
   return sorozatok.find((e) => e.cim === title);
 };
 
-const Card = ({ imgSrc, title, description, setModalOpen, setOpenedCard }) => {
+const Card = ({ imgSrc, title, description, setModalOpen }) => {
+  const { setOpenedCard } = useContext(CardContext);
+
   const onCardClicked = () => {
     const cardData = getCardData(title);
 

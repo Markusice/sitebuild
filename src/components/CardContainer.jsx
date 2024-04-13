@@ -1,9 +1,8 @@
-import React, { createContext, useState } from "react";
+import React, { useState } from "react";
 import sorozatok from "../domain/sorozatok";
 import Card from "./Card";
 import Modal from "./Modal";
-
-const CardContext = createContext(null);
+import CardContext from "../contexts/CardContext";
 
 const CardContainer = () => {
   const [openedCard, setOpenedCard] = useState(null);
@@ -20,16 +19,11 @@ const CardContainer = () => {
               title={series.cim}
               description={series.leiras}
               setModalOpen={setModalOpen}
-              setOpenedCard={setOpenedCard}
             />
           ))}
         </div>
 
-        <Modal
-          isOpen={isModalOpen}
-          setOpen={() => setModalOpen(!isModalOpen)}
-          cardContext={CardContext}
-        />
+        <Modal isOpen={isModalOpen} setOpen={setModalOpen} />
       </CardContext.Provider>
     </>
   );
