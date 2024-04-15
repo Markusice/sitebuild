@@ -6,7 +6,7 @@ const Modal = ({ isOpen, setOpen }) => {
 
   return (
     <>
-      {isOpen ? (
+      {isOpen && (
         <div
           id="modal"
           className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
@@ -38,7 +38,7 @@ const Modal = ({ isOpen, setOpen }) => {
             </button>
           </div>
         </div>
-      ) : null}
+      )}
     </>
   );
 };
